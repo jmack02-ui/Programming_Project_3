@@ -1,7 +1,15 @@
-package strategies;
+//=============================================================================
+//Team Name:        Team 1
+//Team Members:     Keanu Cruz, Johnathan McElprang, Michael McCleary , Pong Vodmongkol
+//Course/Section:   CS 2430
+//Project:          Programming Project 3 – Optimal selection(Spring 2026)
+//Primary Author:   Keanu Cruz
+//=============================================================================
+package team1;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -266,7 +274,7 @@ public class GreedyStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         Result result = solver.greedyByRating();
 
-        assertEquals(3, result.getChosenItems());
+        assertEquals(3, result.getChosenItems().size());
         assertTrue(result.getTotalWeight() <= 700);
     }
 
@@ -281,7 +289,7 @@ public class GreedyStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         Result result = solver.greedyByWeight();
 
-        assertEquals(3, result.getChosenItems());
+        assertEquals(3, result.getChosenItems().size());
         assertTrue(result.getTotalWeight() <= 700);
     }
 
@@ -296,7 +304,7 @@ public class GreedyStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         Result result = solver.greedyByRatio();
 
-        assertEquals(3, result.getChosenItems());
+        assertEquals(3, result.getChosenItems().size());
         assertTrue(result.getTotalWeight() <= 700);
     }
 
@@ -314,7 +322,7 @@ public class GreedyStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         Result result = solver.greedyByRatio();
 
-        assertEquals(3, result.getChosenItems());
+        assertEquals(3, result.getChosenItems().size());
         assertTrue(result.getTotalWeight() <= 700);
     }
 
@@ -322,40 +330,44 @@ public class GreedyStrategiesTest {
 
     @Test
     void highestRatingFirst_SortOrder(){
-        List<Experiment> list1 = List.of(
+        List<Experiment> list = List.of(
                 new Experiment(1, "A", 100, 50),
                 new Experiment(2, "B", 200, 100),
                 new Experiment(3, "C", 400, 200)
-        );
-        List<Experiment> list2 = List.of(
-                new Experiment(3, "C", 400, 200),
-                new Experiment(2, "B", 200, 100),
-                new Experiment(1,"A", 100, 50)
         );
 
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         Result r1 = solver.greedyByRating();
 
-        assertEquals(list2, r1.getChosenItems());
+        List<Integer> expected = List.of(3, 2, 1);
+        List<Integer> actual = new ArrayList<>();
+
+        for (Experiment e : r1.getChosenItems()) {
+            actual.add(e.getId());
+        }
+
+        assertEquals(expected, actual);
     }
 
     @Test
     void lightestWeightFirst_SortOrder(){
         List<Experiment> list1 = List.of(
-                new Experiment(1, "A", 100, 50),
                 new Experiment(2, "B", 200, 100),
+                new Experiment(1, "A", 100, 50),
                 new Experiment(3, "C", 400, 200)
         );
-        List<Experiment> list2 = List.of(
-                new Experiment(3, "C", 400, 200),
-                new Experiment(2, "B", 200, 100),
-                new Experiment(1, "A", 100, 50)
-        );
 
-        KnapsackSolver solver = new KnapsackSolver(list, 700);
+        KnapsackSolver solver = new KnapsackSolver(list1, 700);
         Result r1 = solver.greedyByWeight();
 
-        assertEquals(list2, r1.getChosenItems());
+        List<Integer> expected = List.of(1, 2, 3);
+        List<Integer> actual = new ArrayList<>();
+
+        for (Experiment e : r1.getChosenItems()) {
+            actual.add(e.getId());
+        }
+
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -365,16 +377,17 @@ public class GreedyStrategiesTest {
                 new Experiment(2, "B", 200, 100),
                 new Experiment(3, "C", 475, 200)
         );
-        List<Experiment> list2 = List.of(
-                new Experiment(2, "B", 200, 100),
-                new Experiment(3, "C", 475, 200),
-                new Experiment(1, "A", 150, 50)
-        );
 
-        KnapsackSolver solver = new KnapsackSolver(list, 700);
-        Result r1 = solver.greedyByRating();
+        KnapsackSolver solver = new KnapsackSolver(list1, 700);
+        Result r1 = solver.greedyByRatio();
 
-        assertEquals(list2, r1.getChosenItems());
+        List<Integer> expected = List.of(2, 3);
+        List<Integer> actual = new ArrayList<>();
+
+        for (Experiment e : r1.getChosenItems()) {
+            actual.add(e.getId());
+        }
+
+        assertEquals(expected, actual);
     }
-
 }

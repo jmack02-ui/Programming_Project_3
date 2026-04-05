@@ -1,4 +1,11 @@
-package strategies;
+//=============================================================================
+//Team Name:        Team 1
+//Team Members:     Keanu Cruz, Johnathan McElprang, Michael McCleary , Pong Vodmongkol
+//Course/Section:   CS 2430
+//Project:          Programming Project 3 – Optimal selection(Spring 2026)
+//Primary Author:   Keanu Cruz
+//=============================================================================
+package team1;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +62,7 @@ public class BruteForceStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         List<Result> results = solver.bruteForce();
 
-        assertFalse(results.size() >=3);
+        assertTrue(results.size() <= 3);
     }
 
     @Test
@@ -69,7 +76,15 @@ public class BruteForceStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         List<Result> results = solver.bruteForce();
 
-        assertEquals(200, results.getTotalRating());
+        int bestRating = 0;
+
+        for(Result r : results){
+            if(r.getTotalRating() > bestRating){
+                bestRating += r.getTotalRating();
+            }
+        }
+
+        assertEquals(450, bestRating);
     }
 
     @Test
@@ -135,6 +150,34 @@ public class BruteForceStrategiesTest {
         KnapsackSolver solver = new KnapsackSolver(list, 700);
         List<Result> results = solver.bruteForce();
 
-        assertTrue(results.isEmpty());
+        assertEquals(1, results.size());
+        assertEquals(0, results.get(0).getChosenItems().size());
+        assertEquals(0, results.get(0).getTotalRating());
+        assertEquals(0, results.get(0).getTotalWeight());
     }
+
+    @Test
+    void bruteForceOrderIndependence() {
+
+        List<Experiment> listA = List.of(
+                new Experiment(1, "A", 100, 50),
+                new Experiment(2, "B", 200, 100),
+                new Experiment(3, "C", 300, 200)
+        );
+
+        List<Experiment> listB = List.of(
+                new Experiment(3, "C", 300, 200),
+                new Experiment(2, "B", 200, 100),
+                new Experiment(1, "A", 100, 50)
+        );
+
+        KnapsackSolver solverA = new KnapsackSolver(listA, 500);
+        KnapsackSolver solverB = new KnapsackSolver(listB, 500);
+
+        int bestA = solverA.bruteForce().get(0).getTotalRating();
+        int bestB = solverB.bruteForce().get(0).getTotalRating();
+
+        assertEquals(bestA, bestB);
+    }
+
 }

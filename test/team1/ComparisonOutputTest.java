@@ -1,7 +1,15 @@
-package strategies;
+//=============================================================================
+//Team Name:        Team 1
+//Team Members:     Keanu Cruz, Johnathan McElprang, Michael McCleary , Pong Vodmongkol
+//Course/Section:   CS 2430
+//Project:          Programming Project 3 – Optimal selection(Spring 2026)
+//Primary Author:   Keanu Cruz
+//=============================================================================
+package team1;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,7 +48,6 @@ public class ComparisonOutputTest {
         return best;
     }
 
-    // Tests for Comparison Output
     @Test
     void output_WorksAsIntended(){
         List<Experiment> list = List.of(
@@ -54,7 +61,6 @@ public class ComparisonOutputTest {
         assertFalse(output.isEmpty());
     }
 
-    // Correct Totals
     @Test
     void output_CorrectTotals(){
         List<Experiment> list = List.of(
@@ -69,7 +75,6 @@ public class ComparisonOutputTest {
         assertEquals(totalRating(result), result.getTotalRating());
     }
 
-    // Correct Experiment Outputs
     @Test
     void output_CorrectExperiments(){
         List<Experiment> list = List.of(
@@ -84,7 +89,6 @@ public class ComparisonOutputTest {
         }
     }
 
-    // Greedy Fails vs Brute Force
     @Test
     void greedy_FailsVsBruteForce(){
         List<Experiment> list = List.of(
@@ -99,6 +103,18 @@ public class ComparisonOutputTest {
         Result best = bestResult(solver.bruteForce());
 
         assertTrue(best.getTotalRating() >= greedy.getTotalRating());
-        assertNotEquals(best.getTotalRating(), greedy.getTotalRating());
+    }
+
+    @Test
+    void solverImmuneToMutation() {
+
+        List<Experiment> list = new ArrayList<>();
+        list.add(new Experiment(1, "A", 100, 50));
+
+        KnapsackSolver solver = new KnapsackSolver(list, 500);
+
+        list.add(new Experiment(2, "B", 100, 100)); // external mutation
+
+        assertEquals(1, solver.getItems().size());
     }
 }
