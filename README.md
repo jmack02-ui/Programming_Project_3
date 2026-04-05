@@ -54,8 +54,8 @@ In our project we will focuse on a handful of different algorithms that are not 
 
 ## Folder Structure
 * `Project3` > Eclipse Project  
-  * `Project3/src/main/...` > Implementation  
-  * `Project3/src/test/...` > Tests  
+  * `Project3/src/...` > Implementation  
+  * `Project3/test/...` > Tests  
 * `docs/...` > Planning Artifacts  
 * `README.md` < You Are Here.
 
