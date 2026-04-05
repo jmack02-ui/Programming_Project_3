@@ -49,7 +49,7 @@ In our project we will focuse on a handful of different algorithms that are not 
 ## How to Build & Run
 1. Import the project into Eclipse IDE.
 2. Make sure that you have Java SE 22 or a newer edition installed.
-3. Run the `App` class and verify that the output works correctly.
+3. Run the `Main` class and verify that the output works correctly.
 4. Run the `Test` classes in the /test folder to also verify that the code is correct in logic.
 
 ## Folder Structure
