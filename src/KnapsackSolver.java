@@ -28,7 +28,7 @@ public class KnapsackSolver {
      * @param maxWeight
      */
     public KnapsackSolver(List<Experiment> items, int maxWeight) {
-        this.items = items;
+        this.items = new ArrayList<>(items);
         this.maxWeight = maxWeight;
     }
 
