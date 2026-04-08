@@ -5,8 +5,8 @@
 
 * Johnathan McElprang
 * Keanu Cruz
-* Michael McCleary
-* Pong Vodmongkol
+* Michael McCleary (Inactive)
+* Pong Vodmongkol (Inactive)
 
 ## Overview of the Project
 The purpose of this project is to identify the difference between types of algorithms strategies to solve the knapsack optimization problem. This experiment is used to justify what is the best way algorithmically to fill a "bag" and produce the most efficent Rating and Weight ratio without exceeding a weight limit boundary.
