@@ -22,14 +22,16 @@
 
 ## Contribution Summary (1–3 bullets each)
 - **Keanu Cruz:**
-    - Validate typical use cases for `Three Greedy Algorithms` and `Brute Force Algorithm`.
+    - Validate typical use cases for `GreedyStragegiesTest.java`, `BruteForceStrategiesTest.java`, and `ComparisonOutputTest.java`.
     - Identify implementations works with edge cases and invalid input scenarios.
     - Designed project timeline
 - **Johnathan McElprang:**
-    - Implemented `Three Greedy Algorithm` classes with respective operations.
-    - Implemented `Brute Force Algorithm` class with respective operations.
+    - Implemented `Experiment.java` class with respective operations.
+    - Implemented `KnapsackSolver.java` class with respective operations.
+    - Implemented `Main.java` class with respective operations.
+    - Implemented `Result.java` class with respective operations.
     - Built demonstration app and example set use cases.
-- **Michael McCleary & Pong Vodmongkol:**
+- **Michael McCleary & Pong Vodmongkol(Inactive):**
     - Ensured docs and layout
     - Ensured intermember communication/planning and checkups.
     - Compiled submissions
@@ -43,35 +45,38 @@
 **Primary responsibilities**
 - Creating and running test cases (at least 2–3 required).
 - Testing edge cases.
-- Checking that Parts produce correct results.
+- Checking that `Main.java` produce correct results.
 - Supporting JUnit testing when applicable.
 
 **Completed work (what you actually delivered)**
-- Task - Evidence: link
+- Test Implementation - https://github.com/jmack02-ui/Programming_Project_3/pull/5
 
 
 **Collaboration / Support**
-- Task - Evidence: link
+- Documents Created and Maintained - https://github.com/jmack02-ui/Programming_Project_3/pull/2 & https://github.com/jmack02-ui/Programming_Project_3/commit/0c8127b6e8c5dd392f6e6e339fa1ea723972d0dd & https://github.com/jmack02-ui/Programming_Project_3/commit/e61faaf6ecf4bb598d38bcd3537c01660546185a
 
 ---
 
 ### Johnathan McElprang (jmack02) [Implementation Lead]
 **Primary responsibilities**
-- Leading developer for Three Greedy Algorithms.
-- Leading developer for Brute Force Algorithm.
-- Leading developer for the Project 3 App.
+- Leading developer for `Experiment.java`.
+- Leading developer for `KnapsackSolver.java`.
+- Leading developer for `Main.java`.
+- Leading developer for `Result.java`.
 - Making sure that the project properly compiles and runs accordingly.
 - Maintains repository health.
 
 **Completed work (what you actually delivered)**
-- Task - Evidence: link
+- Initial Src Code Implementation - https://github.com/jmack02-ui/Programming_Project_3/pull/4
+- UML Diagram - https://github.com/jmack02-ui/Programming_Project_3/commit/a8ff682bc6e9d7caba2e063236efb07843abe9b0
+- BoilerCode Doc - https://github.com/jmack02-ui/Programming_Project_3/commit/aa167c2fd7f81fdfc2ca03abddb6e1c01011373e
 
 
 **Collaboration / support**
-- Task - Evidence: link
+- Communication and Expectations for deliverables.
 
 
-### Michael McCleary & Pong Vodmongkol [Communications Lead]
+### Michael McCleary & Pong Vodmongkol(Inactive) [Communications Lead]
 **Responsibilities:**
 - Creating and maintaining `README.md` and `/docs` artifacts.
 - Ensuring that the documentation aligns with the project instructions.
