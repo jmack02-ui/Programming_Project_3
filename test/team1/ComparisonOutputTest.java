@@ -102,9 +102,13 @@ public class ComparisonOutputTest {
         KnapsackSolver solver = new KnapsackSolver(list, 7);
 
         Result greedy = solver.greedyByRating();
+        Result greedy2 = solver.greedyByWeight();
+        Result greedy3 = solver.greedyByRatio();
         Result best = bestResult(solver.bruteForce());
 
         assertTrue(best.getTotalRating() >= greedy.getTotalRating());
+        assertTrue(best.getTotalRating() >= greedy2.getTotalRating());
+        assertTrue(best.getTotalRating() >= greedy3.getTotalRating());
     }
 
 
