@@ -54,6 +54,7 @@
 
 **Collaboration / Support**
 - Documents Created and Maintained - https://github.com/jmack02-ui/Programming_Project_3/pull/2 & https://github.com/jmack02-ui/Programming_Project_3/commit/0c8127b6e8c5dd392f6e6e339fa1ea723972d0dd & https://github.com/jmack02-ui/Programming_Project_3/commit/e61faaf6ecf4bb598d38bcd3537c01660546185a
+- Project Report Final Version - https://github.com/jmack02-ui/Programming_Project_3/commit/7278fbc21a11730dd7467575e3358cdfaafad6c1
 
 ---
 
@@ -74,6 +75,7 @@
 
 **Collaboration / support**
 - Communication and Expectations for deliverables.
+- Initial Project Report Write Up - https://github.com/jmack02-ui/Programming_Project_3/commit/7278fbc21a11730dd7467575e3358cdfaafad6c1
 
 
 ### Michael McCleary & Pong Vodmongkol(Inactive) [Communications Lead]
@@ -84,17 +86,15 @@
 - Verifying submission format compliance (zip structure, file naming, required artifacts).
 
 **Completed work (what you actually delivered)**
-- Task - Evidence: link
 
 **Collaboration / Support**
-- Task - Evidence: link
 
 ---
 
 ## Attestation
 Each team member should add initials next to their name once reviewed. (Due at the end of Project 3)
 
-- Keanu Cruz: __ Date: ______
+- Keanu Cruz: KC Date: 4/12/2026
 - Johnathan McElprang: __ Date: ______
 - Michael McCleary: __ Date: ______
 - Pong Vodmongkol: __ Date: ______
