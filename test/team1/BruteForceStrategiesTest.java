@@ -32,7 +32,7 @@ public class BruteForceStrategiesTest {
         return best;
     }
 
-    // Tests For Brute Force
+    // Standard Operation Tests For Brute Force
     @Test
     void standardOperation(){
         List<Experiment> list = List.of(
@@ -50,19 +50,6 @@ public class BruteForceStrategiesTest {
             }
         }
         fail();
-    }
-
-    @Test
-    void lessThanThreeSubsets(){
-        List<Experiment> list = List.of(
-                new Experiment(1, "A", 100, 50),
-                new Experiment(2, "B", 150, 100)
-        );
-
-        KnapsackSolver solver = new KnapsackSolver(list, 700);
-        List<Result> results = solver.bruteForce();
-
-        assertTrue(results.size() <= 3);
     }
 
     @Test
@@ -88,6 +75,21 @@ public class BruteForceStrategiesTest {
     }
 
     @Test
+    void subsetsInBounds(){
+        List<Experiment> list = List.of(
+                new Experiment(1, "A", 400, 100),
+                new Experiment(2, "B", 500, 200)
+        );
+
+        KnapsackSolver solver = new KnapsackSolver(list, 700);
+        List<Result> results = solver.bruteForce();
+
+        for (Result r : results){
+            assertTrue(r.getTotalWeight() <= 700);
+        }
+    }
+
+    @Test
     void subsetCountValidation(){
         List<Experiment> list = List.of(
                 new Experiment(1, "A", 100, 50),
@@ -101,6 +103,44 @@ public class BruteForceStrategiesTest {
     }
 
     @Test
+    void bruteForceOrderIndependence() {
+
+        List<Experiment> listA = List.of(
+                new Experiment(1, "A", 100, 50),
+                new Experiment(2, "B", 200, 100),
+                new Experiment(3, "C", 300, 200)
+        );
+
+        List<Experiment> listB = List.of(
+                new Experiment(3, "C", 300, 200),
+                new Experiment(2, "B", 200, 100),
+                new Experiment(1, "A", 100, 50)
+        );
+
+        KnapsackSolver solverA = new KnapsackSolver(listA, 500);
+        KnapsackSolver solverB = new KnapsackSolver(listB, 500);
+
+        int bestA = solverA.bruteForce().get(0).getTotalRating();
+        int bestB = solverB.bruteForce().get(0).getTotalRating();
+
+        assertEquals(bestA, bestB);
+    }
+
+    // Edge Testing
+    @Test
+    void lessThanThreeSubsets(){
+        List<Experiment> list = List.of(
+                new Experiment(1, "A", 100, 50),
+                new Experiment(2, "B", 150, 100)
+        );
+
+        KnapsackSolver solver = new KnapsackSolver(list, 700);
+        List<Result> results = solver.bruteForce();
+
+        assertTrue(results.size() <= 3);
+    }
+
+    @Test
     void multipleSubsetsSameRating(){
         List<Experiment> list = List.of(
                 new Experiment(1, "A", 100, 50),
@@ -111,21 +151,6 @@ public class BruteForceStrategiesTest {
         Result best = bestResult(solver.bruteForce());
 
         assertEquals(50, best.getTotalRating());
-    }
-
-    @Test
-    void subsetsInBounds(){
-        List<Experiment> list = List.of(
-                new Experiment(1, "A", 400, 100),
-                new Experiment(2, "B", 500, 200)
-        );
-
-        KnapsackSolver solver = new KnapsackSolver(list, 700);
-        List<Result> results = solver.bruteForce();
-
-        for (Result r : results){
-            assertTrue(r.getTotalWeight() <= 700);
-        }
     }
 
     @Test
@@ -155,29 +180,4 @@ public class BruteForceStrategiesTest {
         assertEquals(0, results.get(0).getTotalRating());
         assertEquals(0, results.get(0).getTotalWeight());
     }
-
-    @Test
-    void bruteForceOrderIndependence() {
-
-        List<Experiment> listA = List.of(
-                new Experiment(1, "A", 100, 50),
-                new Experiment(2, "B", 200, 100),
-                new Experiment(3, "C", 300, 200)
-        );
-
-        List<Experiment> listB = List.of(
-                new Experiment(3, "C", 300, 200),
-                new Experiment(2, "B", 200, 100),
-                new Experiment(1, "A", 100, 50)
-        );
-
-        KnapsackSolver solverA = new KnapsackSolver(listA, 500);
-        KnapsackSolver solverB = new KnapsackSolver(listB, 500);
-
-        int bestA = solverA.bruteForce().get(0).getTotalRating();
-        int bestB = solverB.bruteForce().get(0).getTotalRating();
-
-        assertEquals(bestA, bestB);
-    }
-
 }

@@ -48,6 +48,7 @@ public class ComparisonOutputTest {
         return best;
     }
 
+    // Standard Tests for Output
     @Test
     void output_WorksAsIntended(){
         List<Experiment> list = List.of(
@@ -89,6 +90,7 @@ public class ComparisonOutputTest {
         }
     }
 
+    // Verify Brute Force is better than Greedy Strategies
     @Test
     void greedy_FailsVsBruteForce(){
         List<Experiment> list = List.of(
@@ -105,6 +107,11 @@ public class ComparisonOutputTest {
         assertTrue(best.getTotalRating() >= greedy.getTotalRating());
     }
 
+
+    /**
+     * Bug Found: 4/5/26 Resolved: 4/6/26
+     * Knapsack Constructor not making deep copy of items.
+     */
     @Test
     void solverImmuneToMutation() {
 
